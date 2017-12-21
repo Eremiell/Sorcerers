@@ -1,0 +1,43 @@
+{
+	"^start": {
+		"text": "start",
+		"gotos": {
+			"next": "next",
+			"loop": "^start"
+		},
+		"start": true
+	},
+	"next": {
+		"text": "next",
+		"gotos": {
+			"moonwalk": "^start",
+			"loop": "next",
+			"fight": "fight",
+			"win": "$victory",
+			"lose": "$failure"
+		}
+	},
+	"fight": {
+		"text": "fight!",
+		"prg": "1d3",
+		"gotos": {
+			"@1": "$failure",
+			"@2": "$failure",
+			"@3": "$victory"
+		}
+	},
+	"$victory": {
+		"text": "you won",
+		"gotos": {
+			"sweet": ""
+		},
+		"end": true
+	},
+	"$failure": {
+		"text": "you lost",
+		"gotos": {
+			"boo": ""
+		},
+		"end": true
+	}
+}
